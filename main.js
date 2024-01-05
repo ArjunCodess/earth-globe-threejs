@@ -1,5 +1,5 @@
-let targetRotationX = 0.05;
-let targetRotationY = 0.02;
+let targetRotationX = 0.005;
+let targetRotationY = 0.002;
 let mouseX = 0, mouseXOnMouseDown = 0, mouseY = 0, mouseYOnMouseDown = 0;
 const windowHalfX = window.innerWidth / 2;
 const windowHalfY = window.innerHeight / 2;
@@ -69,8 +69,6 @@ function main() {
         earthMesh.rotateOnWorldAxis(new THREE.Vector3(1, 0, 0), targetRotationY);
         cloudMesh.rotateOnWorldAxis(new THREE.Vector3(0, 1, 0), targetRotationX);
         cloudMesh.rotateOnWorldAxis(new THREE.Vector3(1, 0, 0), targetRotationY);
-        targetRotationY = targetRotationY * slowingFactor;
-        targetRotationX = targetRotationX * slowingFactor;
         renderer.render(scene, camera);
     }
     const animate = () => {
