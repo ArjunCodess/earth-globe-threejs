@@ -35,18 +35,14 @@ function main() {
     const earthMaterial = new THREE.MeshPhongMaterial({
         map: new THREE.TextureLoader().load('texture/earthmap.jpeg'),
         bumpMap: new THREE.TextureLoader().load('texture/earthbump.jpeg'),
-        bumpScale: 0.01,
+        bumpScale: 1,
     });
     const earthMesh = new THREE.Mesh(earthGeometry, earthMaterial);
     scene.add(earthMesh);
 
-    const pointLight = new THREE.PointLight(0xffffff, 100, 4); // White light, intensity 100, distance 4
+    const pointLight = new THREE.PointLight(0xffffff, 5, 4); // White light, intensity 5, distance 4
+    pointLight.position.set(1,0.3,1);
     scene.add(pointLight);
-
-    // Optionally, create a directional light:
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 2.5); // White light, intensity 2.5
-    directionalLight.position.set(10, 10, 10);
-    scene.add(directionalLight);
 
     const cloudGeometry = new THREE.SphereGeometry(0.52, 32, 32);
     const cloudMaterial = new THREE.MeshPhongMaterial({
